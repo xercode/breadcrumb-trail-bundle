@@ -1,0 +1,30 @@
+{
+  "name": "xebook/breadcrumb-trail-bundle",
+  "type": "symfony-bundle",
+  "description": "Xebook BreadcrumbTrailBundle",
+  "keywords": [],
+  "homepage": "https://xercode.com",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Xabier Fernández",
+      "email": "javier.fernandez@xercode.es"
+    },
+    {
+      "name": "xeBook Community",
+      "homepage": "https://xercode.com/contributors"
+    }
+  ],
+  "require": {
+    "php": "^7.1.3"
+  },
+  "autoload": {
+    "psr-4": { "xeBook\\Bundle\\BreadcrumbTrailBundle\\": "src/" }
+  },
+  "autoload-dev": {
+    "psr-4": { "xeBook\\Bundle\\BreadcrumbTrailBundle\\": "tests/" }
+  },
+  "require-dev": {
+    "symfony/phpunit-bridge": "^4.1.8"
+  }
+}
