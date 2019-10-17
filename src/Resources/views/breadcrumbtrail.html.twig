@@ -1,17 +1,30 @@
 {%- if breadcrumbs.count %}
-    <ul id="breadcrumbtrail">
+    {% set translate = true %}
+    <ol class="breadcrumb" id="breadcrumbtrail">
         {% for breadcrumb in breadcrumbs %}
             {% set class = (loop.first ? 'home' : (loop.last ? 'current' : '')) %}
             <li {% for attr,value in breadcrumb.attributes -%}
             {%- if attr == 'class' %}{% set value = value ~ ' ' ~ class %}{% endif -%}
+            {%- if attr == 'translate' %}{% set translate = value %}{% endif -%}
             {{ attr }}="{{ value }}"
-        {%- endfor %}{% if breadcrumb.attributes.class is not defined %} class="{{ class }}"{% endif %}>
+        {%- endfor %}
+            {% if breadcrumb.attributes.class is not defined %} class="{{ class }}"{% endif %}>
             {%- if breadcrumb.url is null or loop.last -%}
-                {{ breadcrumb.title|trans }}
+                {% if translate == true %}
+                    {{ breadcrumb.title|trans }}
+                {% else %}
+                    {{ breadcrumb.title }}
+                {% endif %}
             {%- else -%}
-                <a href="{{ breadcrumb.url }}">{{ breadcrumb.title|trans }}</a>
+                <a href="{{ breadcrumb.url }}">
+                    {% if translate == true %}
+                        {{ breadcrumb.title|trans }}
+                    {% else %}
+                        {{ breadcrumb.title }}
+                    {% endif %}
+                </a>
             {%- endif -%}
             </li>
         {% endfor %}
-    </ul>
+    </ol>
 {%- endif -%}
