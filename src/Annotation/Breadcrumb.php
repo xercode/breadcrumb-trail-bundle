@@ -15,6 +15,7 @@ namespace xeBook\Bundle\BreadcrumbTrailBundle\Annotation;
 
 /**
  * @Annotation
+ * @Target({"METHOD","CLASS"})
  */
 final class Breadcrumb
 {
