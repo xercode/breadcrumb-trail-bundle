@@ -50,7 +50,13 @@ final class BreadcrumbListener
      */
     public function onKernelController(ControllerEvent $event)
     {
-        if (!is_array($controller = $event->getController())) {
+        $controller = $event->getController();
+
+        if (is_callable($controller) && method_exists($controller, '__invoke')) {
+            $controller = [$controller, '__invoke'];
+        }
+
+        if (!is_array($controller)) {
             return;
         }
 
