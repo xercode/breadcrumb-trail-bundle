@@ -92,7 +92,7 @@ final class Trail implements \IteratorAggregate, \Countable
             }
 
             if ($request !== null) {
-                preg_match_all('#\{(?P<variable>\w+).?(?P<function>([\w\.])*):?(?P<parameters>(\w|,| )*)\}#', $breadcrumb_or_title, $matches, PREG_OFFSET_CAPTURE | PREG_SET_ORDER);
+                preg_match_all('#\{(?P<variable>\w+).?(?P<function>([\w\.])*):?(?P<parameters>(\w|,| )*)\}#', (string)$breadcrumb_or_title, $matches, PREG_OFFSET_CAPTURE | PREG_SET_ORDER);
 
                 foreach ($matches as $match) {
                     $varName    = $match['variable'][0];
@@ -144,7 +144,7 @@ final class Trail implements \IteratorAggregate, \Countable
                         $routeParameters[$value] = $request->get($value);
                         unset($routeParameters[$key]);
                     } else {
-                        if (preg_match_all('#\{(?P<variable>\w+).?(?P<function>([\w\.])*):?(?P<parameters>(\w|,| )*)\}#', $value, $matches, PREG_OFFSET_CAPTURE | PREG_SET_ORDER)) {
+                        if (preg_match_all('#\{(?P<variable>\w+).?(?P<function>([\w\.])*):?(?P<parameters>(\w|,| )*)\}#', (string)$value, $matches, PREG_OFFSET_CAPTURE | PREG_SET_ORDER)) {
 
                             foreach ($matches AS $match) {
 
