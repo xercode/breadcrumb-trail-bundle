@@ -2,9 +2,9 @@
   "name": "xercode/breadcrumb-trail-bundle",
   "type": "symfony-bundle",
   "description": "Xebook BreadcrumbTrailBundle",
-  "keywords": [],
+  "keywords": ["symfony","bundle", "breadcrumb"],
   "homepage": "https://xercode.com",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "authors": [
     {
       "name": "Xabier Fernández",
@@ -26,5 +26,10 @@
   },
   "require-dev": {
     "symfony/phpunit-bridge": "^4.1.8"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
   }
 }
