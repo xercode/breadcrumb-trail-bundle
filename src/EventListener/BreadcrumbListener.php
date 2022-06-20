@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace xeBook\Bundle\BreadcrumbTrailBundle\EventListener;
 
 use Doctrine\Common\Annotations\Reader;
-//use Symfony\Component\HttpKernel\Event\ControllerEvent;
+use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use xeBook\Bundle\BreadcrumbTrailBundle\Annotation\Breadcrumb;
 use xeBook\Bundle\BreadcrumbTrailBundle\BreadcrumbTrail\Trail;
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent as ControllerEvent;
+//use Symfony\Component\HttpKernel\Event\FilterControllerEvent as ControllerEvent;
 
 final class BreadcrumbListener
 {
